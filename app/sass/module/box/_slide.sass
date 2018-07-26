@@ -1,0 +1,50 @@
+.slide
+  +bga(bg_slogan)
+  background-position: center 0
+  height: 100vh
+  position: relative
+  z-index: 2
+  @media(max-width: 960px)
+    height: auto
+    padding-bottom: 5rem
+  .block-text
+    @media(max-width: 760px)
+      max-width: 100%
+  .slogan
+    position: absolute
+    width: 100%
+    max-width: 90%
+    height: 30rem
+    top: 40%
+    bottom: 0
+    left: 0
+    right: 0
+    margin: 0 auto
+    @media(max-width: 960px)
+      position: relative
+      padding-top: 20rem
+      
+    @media(max-width: 760px)
+      top: 20%
+    h2
+      color: #fff
+      margin-top: 0
+      @media(max-width: 760px)
+        text-align: center
+    .h2
+      color: $white
+      text-align: center
+      font-size: 2em
+      font:
+        weight: bold
+      @media(max-width: 760px)
+        max-width: 100%
+      
+    .block-forma
+      @media(max-width: 1200px)
+        background: rgba(255, 255, 255, 0.59)
+      .h2
+        background: $white
+        text-align: center
+        padding: .3em
+    

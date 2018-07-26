@@ -1,0 +1,28 @@
+.mobi_app
+  +bga(bg_mob_app)
+  background-position: center 0
+  background-size: cover
+  h3
+    color: $white
+    text-transform: uppercase
+  .text-block
+    color: $color_1
+    font:
+      size: 1.6em
+  .mobi
+    .owl-item
+      img
+        opacity: 0
+        -webkit-transition: opacity .5s ease-in
+        -moz-transition: opacity .5s ease-in
+        transition: opacity .5s ease-in
+        @extend %slideInDown
+        @extend .animImg
+      &.active
+        img
+          opacity: 1
+          -webkit-transition: opacity .5s ease-in
+          -moz-transition: opacity .5s ease-in
+          transition: opacity .5s ease-in
+          @extend .animImg
+          @extend %slideInUp

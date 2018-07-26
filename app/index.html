@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title }}</title>
+  <link rel="ico" type="image/png" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">-->
+  <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&amp;subset=cyrillic,cyrillic-ext"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/path.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <header class="z-depth-1">
+    <div class="container">
+      <div class="row no-row">
+          <a href="#" data-target="slide-out col s1" class="sidenav-trigger"><i class="material-icons white-text">menu</i></a>
+        <a href="#!" class="col l2 s2 logo">
+            <svg 
+xmlns="http://www.w3.org/2000/svg"
+xmlns:xlink="http://www.w3.org/1999/xlink"
+width="112px" height="92px">
+<image  x="0px" y="0px" width="112px" height="92px"  xlink:href="data:img/png;base64,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" />
+</svg>
+        </a>
+        <a href="#!" class="col l2 m4 s7 logo fix right">
+            <img src="img/logo22.jpg" alt="">
+          </a>
+        <div class="col l7 s12 right">
+            <ul class="right hide-on-med-and-down navi">
+                <li><a href="sass.html">О нас</a></li>
+                <li><a href="badges.html">Возможности</a></li>
+                <li><a href="badges.html">Отзывы</a></li>
+                <li><a href="collapsible.html">Материалы</a></li>
+                <li><a href="mobile.html">Контакты</a></li>
+              </ul>
+            
+            
+        </div>
+        
+      </div>
+    </div>
+    
+  </header>
+  <ul id="slide-out" class="sidenav">
+      <li><a class="sidenav-close" href="#!">Clicking this will close Sidenav</a></li>
+  </ul>
+  <main>
+    <div class="slide z-depth-1">
+      <div class="container">
+        <div class="row">
+          <div class="slogan ">
+            <div class="row">
+              <div class="col lx7 l6 m12 block-text">
+                <div class="h2 fix_before">Удобная и простая работа Ритуального Бизнеса</div>
+                <h2 class="rampa z-depth-5 ">1С:УПРАВЛЕНИЕ РИТУАЛЬНЫМИ УСЛУГАМИ</h2>
+              </div>
+              <div class="col offset-lx1 offset-l1 lx3 l4 m12 block-forma">
+                <form class="col s12">
+                  <div class="row">
+                    <div class="col offset-s1 s10 h2 blue-grey-text text-darken-4 z-depth-1">Заказать демонстрацию</div>
+                    <div class="input-field col s12">
+                      <input id="icon_login" name="email" type="text" class="validate" placeholder="Ваш EMAIL">
+                      <span class="error_email" style="font-size: 0.8rem;"></span>
+                    </div>
+                    <div class="input-field col s12">
+                      <input id="icon_prefix" name="name" type="text" class="validate" placeholder="Ваше Имя">
+                      <span class="error_name" style="font-size: 0.8rem;"></span>
+                    </div>
+                    <div class="input-field col s12">
+                      <input id="icon_telephone" name="phone" type="tel" class="validate" placeholder="Ваш телефон">
+                      <span class="error_phone" style="font-size: 0.8rem;"></span>
+                    </div>
+                    <div class="input-field col s12">
+                      <label>
+                        <input type="checkbox" class="filled-in red-text" checked="checked" required="">
+                        <span style="font-size: 1rem;">Я согласен(a) на обработку моих персональных данных</span>
+                      </label>
+                      <br>
+                    </div>
+                    <div class="input-field col s12">
+                      <button type="submit" class="btn red col s12"> Заказать</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="block-content padding_pluse">
+      <div class="container">
+        <div class="row">
+          <h2 class="col l8 s12 offset-l2 ">Описание</h2>
+        </div>
+        <div class="row">
+          <p class="middle ">Решение обеспечивает автоматизацию функций документооборота организаций, работающих в области предоставления ритуальных
+            услуг, и позволяет автоматизировать процессы оформления заказов на ритуальные услуги, производства ритуальных
+            принадлежностей, установки памятников и предоставления услуг автотранспорта.</p>
+        </div>
+      </div>
+    </div>
+    <div class="function padding_pluse">
+      <div class="container">
+        <div class="row">
+          <div class="col l12 s12 options">
+            <div class="row">
+              <div class="col l6 s12 ele">
+                <a href="" class="link_click modal-trigger"><span>  подробнее</span></a>
+                <div class="ico">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="49px" height="49px">
+                    <image x="0px" y="0px" width="49px" height="49px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAxCAMAAABEQrEuAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAATlBMVEX///+TkoOTkoOTkoOTkoOTkoOzxmCzxmCzxmCzxmCzxmCzxmCzxmCzxmCzxmCzxmCTkoOTkoOTkoOTkoOzxmCTkoOTkoOTkoOzxmD///+EVEkHAAAAF3RSTlMAIEAwgMBgwKCAMNAQ8LAgEPBg0EBQoHTHXS8AAAABYktHRACIBR1IAAAAB3RJTUUH4gcDESMDDYmMSwAAARBJREFUSMft1tF2gyAMBuAI4irq6tpt9P2fdElASFroqTfdjf8NR8hniFdCZ4yFXelDcIf4HzF8qAwv9DjdZMaG8E3SEKfbNDdIXVBFi1RFPG+QmthOBZmnZ6K8LhMBKkJOmYgEj0J/fCYKPAgNmGSwfFZEBuOykXMGno+1yGAAv9x1W3wsUEKA9Z4Q6FcskUIA+3XRhDu4KxIhFKANQRiAC0h8EQpw00wQXAwJIkVMEsTBEiEQokgkivjdB37kDZtmYbCJ0IvJiQxQhAlMIqgKmL+3sZIgMp4ZVMUP8E2kQIIJLeF+ceheCyZtkTaUCIc4xLuFNZgOoKMVf1RWWrEQeF1LAYur2REbr7Ej7h3iD7mzX6RoV8kaAAAAAElFTkSuQmCC"
+                    />
+                  </svg>
+                </div>
+                <div class="h1">Производство</div>
+                <div class="row">
+                  <ul>
+                    <li>Учет материалов, использованных в производстве.</li>
+                    <li>Формирование заказ-нарядов на выполнение работ.</li>
+                    <li>Графики производства продукции и выполнение работ.</li>
+                    <li>Расчет зарплаты исполнителям.</li>
+                  </ul>
+                </div>
+              </div>
+              <!--Element-->
+              <div class="col l6 s12 ele">
+                  <a href="#modal01" class="link_click modal-trigger"><span>  подробнее</span></a>
+                <div class="ico">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="43px" height="49px">
+                    <image x="0px" y="0px" width="43px" height="49px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAAxCAMAAAB0zqAPAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAY1BMVEX///8fTcEfTcEfTcEfTcEfTcEfTcEfTcEfTcEfTcEfTcEfTcEfTcEfTcEfTcEfTcGTkoOTkoOTkoOTkoOTkoOTkoOTkoOTkoOTkoOTkoOTkoOTkoOTkoOTkoMfTcGTkoP///8SqjglAAAAHnRSTlMAEECAwGCw8KAw4HDQIJBQMIAQ8NCQUOBgwKBAIHAZjgpGAAAAAWJLR0QAiAUdSAAAAAd0SU1FB+IHAxEzH1NKwlUAAAJ+SURBVEjHjZXZdusgDEUZjDEYcOIMnW7F//9lJSbjNomvHtqFvRFHR8JhbBdcSDkMg5SCs5fB1QBbjOo5zqUGPSmTFkZNuJJPUGHBKm7mcUBoGGfDFT4Rj1AJembKdRqcYrOGB6kncB4z78MK72D6i048VAJ9qLsCH3/DEtFswVCK98WSiY0w78oCh/tJYl9KljRxB6Z7arUPOUk5ppg40UNptO0VSNGjAmr6BAsJqrG4z26oDw6c5BvsuG2JFShF5fOySqGzRk5J1AxLYUfg1IJ8ricvQOPW/HKhNYexsDAS4PJiBhKvdN2b1PlR10pmOneudYLC2rzTvG0mEaYsBFXg606wATqbDXVPFCckpJY1U9LoLhtMgn0ZIQkM2aHlyaNmW68cvXzMYulpEnQRlV8+ZvGeCQhYfR1cu2N7vRO+QB/EtrvXq0DQ4JimTpBnreXkAzq+lIXs/J3o7gANb5kXyrPImkpjD1tPua63jW994043iZ4GveQp92Ps2oYzUMd1yeNbm4rfie3WpGNwgFsjrU7JNtvo1em85lJxzLqLoSCYP/dijZfzaiw1JUDX8gHEnC5xlmEs9ewaiVYWx65rKjNa53uou+t9izHRzLV2FxUuw6BDKoOL5R5TvL2zHUrWOK6qtdnfNcZG70OBFr7/+oK/xmc0Zg1cTBurbjE+ozGrDp4JOeK3b5KC3WN8Ti/ovAsLTjCWFsY17uPtvqNN2D7Bln3s2c+vXzUyjz9EUs4CjTp34OX2j72Krw39XtlBbOz7EdoLPh2xWfAl/TkSkQSf39OO638I/igTFz8PBaezs+6v1+x3BtY3RG8HeU/n8v9yOXatxj159gPptVBCnp7cvgAAAABJRU5ErkJggg=="
+                    />
+                  </svg>
+                </div>
+                <div class="h1">Учет заказов</div>
+                <div class="row">
+                  <ul>
+                    <li>Регистрация поступивших заказов от клиентов.</li>
+                    <li>Расчет стоимости нанесения гравировок и надписей.</li>
+                    <li>Планирование проведения работ, резервирование ресурсов – бригад, оборудования, транспорта и т.п.</li>
+                    <li>Составление графического макета памятника или добавление изображений/файлов, подготовленных в других
+                      программах.</li>
+                    <li>Печать БО-13(01).</li>
+                  </ul>
+                </div>
+              </div>
+              <!--Element-->
+              <div class="col l6 s12 ele">
+                  <a href="" class="link_click modal-trigger"><span>  подробнее</span></a>
+                <div class="ico">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" height="35px">
+                    <image x="0px" y="0px" width="64px" height="35px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAjCAMAAAAT1/wYAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAolBMVEX///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPDw9OTk4WFhYqKioDAwMSEhISEhIAAAAAAAAAAAAMHUgfTcEOJFv/AAAAAQMLG0MbQ6oAAAEFDR8YO5QCBg8QKGRgYGCAgIB4eHgQEBADAwNYWFj///998xTgAAAAInRSTlMAIKDwwFAwgEBg0HAQkvag4jzI/pz56OCw6/bo7fbi4PeQME3fjQAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMSBA/cvMxcAAABUElEQVRIx6WV2VqDMBCFQwKFAop1q3ax9khxt+v7P5uEUkmYpMiXcwcn+ZnJhBnGTvK4QJf8gFk16N4uxW37PQERRuysomEMJBaTQwxYp1IfwmIB4bltii7MGQD2ALT9uDSnB6iPWaZH95KftLKcQgtQFDogb/SKKzfAGzDqAGRFpcwMeP/AtRMg/8RN6pJC/gXcOgHyb9w5lLHUj6mSLYAun/xS9/0AKSV4vQBEgv7V/QAhREoB/ZS4AsZOKcjlgROAxXgwA4Ky6yFu6Fzpo6o3bH+wBvB271UAmkciPra0EHicrCdTU4PUPZqyfF9SZhupGb1qLY+TMsi2nmC+rRZt56TOuhfRGOVg8fG0OWpB/BCLP4+X6YxJU6lG265etDNcHc0zTSGPP2Nfh7k3ABRPcENTowf1b6/REpge1oeyVMtenloL+xC3eRxO4s6AXzD3dl2nbSFVAAAAAElFTkSuQmCC"
+                    />
+                  </svg>
+                </div>
+                <div class="h1">Автотранспорт</div>
+                <div class="row">
+                  <ul>
+                    <li>Отдельная подсистема для учета автопарка ритуального агентства.</li>
+                    <li>Учет ГСМ.</li>
+                    <li>Печать путевых листов и журнала путевых листов.</li>
+                    <li>Анализ загруженности катафального транспорта.</li>
+                  </ul>
+                </div>
+              </div>
+              <!--Element-->
+              <div class="col l6 s12 ele">
+                  <a href="" class="link_click modal-trigger"><span>  подробнее</span></a>
+                <div class="ico">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="42px" height="49px">
+                    <image x="0px" y="0px" width="42px" height="49px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAxCAMAAACbDMsxAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABMlBMVEX///8fTcEfTcEfTcEfTcEfTcEfTcEfTcEfTcEfTcEfTcEfTcEfTcEfTcEsVbqTkoNXbqOTkoOTkoMAAAAAAAAFDB4GDyeTkoOTkoMAAAACBQ4BAgYFDSAEChmTkoMDBxIBAwcCBQuTkoNkdpwiT8ADCBQBBAkFDiIOEhsfTcECBAsAAAABAwgDCBWTkoOTkoMDCBURFiMDBxIDCBQECxsEChgDBxECBg4EChgDCBQSFiCTkoOTkoMCBQsECRYHEi0BAwZfXlQCBg8HESsAAACTkoOIi4kfTcFFY60fTcGTkoNneJotVbkMHUgPJmANIlQAAABvfJYZP50bQ6kXOpEdSLUHDyMvMjUDBQtlZFoTMHgLDRQFChYRK2wVNYR3d2pXWVRGR0MIEzAmUb2EiYv///8nJ/oXAAAASXRSTlMAIJDQwGDwMEDgEKBQgJCA+EDgQICYoCDAIKz4+bgQavmIYOz2svz8wHD+MPvY8KCQytTo4MnleaX78NAw7v37+N/i9xBwprDtEDmAxwAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMSEQaS1ZLsAAABz0lEQVRIx63VaVeCQBQG4CHUMCNSLDUVl8p2bV9t1bKZUgmlzMpK+/+/IRFUGMbBzun9JJ7njHfujBcA6GEmWAhdbuActwf2wk46SQ72451yoN4BhT66nIam0ClvphyVzoxNhdkxqT+AHsx02AIxODcfFAePoTDq5tHegchCNFauVKoxOR7RniUB9fI0kB5j0USyrOjf1MpyCoB0ABlZXDJOwDit5Ux9+EPKymq4D5EgMRPdY2DXjDVT6zVz+erziwHDIWynG5sKtERtvGow4Lc1ZasCsTTfEMoK9vZtZFScwvfXXMguwXbZJuHHDvFQdlt2Wt8j0v26nUKZSKPK2JS0qkqmB01CrYdEekToQPWYSCOyva8nIpGCeBWXlVOyBJEk1llF/gxLZJvIWPqlNL4QOhtl5Y+hbDW+tXuVzZOteH7R1DfXury61i/rKAsSN3Kh3S7Ih0dFKWfc7PQIC4piN8Xex7691R44+gy8Newd79WqKtHGa1r/a3f6e3VRRmY+iyyzhaXZwE/H3G0XpQbp3nqGlOk2hV0MytTmMOoZTXmMwn+hfyiAwWiJ0i2XldIOd9IiWUCL21wpA8a0Xse3MePTIe/0LtZ7xg3u9i/zaOmrAOoWJwAAAABJRU5ErkJggg=="
+                    />
+                  </svg>
+                </div>
+                <div class="h1">Дополнительные возможности</div>
+                <div class="row">
+                  <ul>
+                    <li>база клиентов</li>
+                    <li>банковские и кассовые операции, клиент-банк, платежный календарь</li>
+                    <li>расчеты с контрагентами, персоналом</li>
+                    <li>учет материалов, товаров, продукции</li>
+                    <li>заказы клиентов, заказы-наряды</li>
+                  </ul>
+                </div>
+              </div>
+              <!--Element-->
+              <div class="col l6 s12 ele">
+                  <a href="" class="link_click modal-trigger"><span>  подробнее</span></a>
+                  <div class="ico">
+                      <svg 
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      width="41px" height="49px">
+                     <image  x="0px" y="0px" width="41px" height="49px"  xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAxCAMAAABwO3AyAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAe1BMVEX///+TkoOTkoOTkoOTkoOTkoMfTcEfTcEfTcEfTcEfTcEfTcEfTcEfTcEfTcEfTcEfTcEfTcEfTcEfTcEfTcGTkoOTkoOTkoOTkoOTkoOTkoOTkoOTkoOTkoNRaqZbcaFhdZ5qepmTkoOTkoMfTcFRa6ZDYq48XrL///8UXijGAAAAI3RSTlMAUIAwQNBQ4MAg0HAQQPCQsIBgoDAQwPAgoGDgkHDgH3BKsBiCrdAAAAABYktHRACIBR1IAAAAB3RJTUUH4gcDEhoaZSAXaAAAAZpJREFUSMet1NtywiAQBuDNmZAEc5IYtUe39f3fsAQJAZTKdPpfxfEbCLthAaI4JBFAcglLAmmgTBeZpc+SKRnDs8RPZV4gKUNkiVggDZEVVjXFsDVpw4JkzRBxFyJb7Lom5OyVXM8j+65XG1ddzqi/nkS9FwAVT6z0ykaetRMZkFZYwC9yEKe4paoL9Mtx6Umhu0M8soSRsRbJuHa8rR/KsUDG2OiplynFXog5BEjxUh1WIVIUh4Wt2YvCDBAioWxGCJOwjznn8V7/W3eEkF15L5NJXtYpWbvAZKtY7srDpO71dLj1gamuyhqbctYjYJZywDWtIyctJymZlu49MuaKlPgPMtMwk7LV0J0MRy2j21enZe/Wc7aOvh1+cOoZnbbd02VJuu2em/JgzlRR+xLNlFqelycjL+JTNdPBWckLP1nyxF8t+crX6X2fL0t+3+b8Pnsgr5a8LudUnyO3HJdTZ8t2761eyi5RSzKvvADa+YtMHPnmyO0uupV6d2TjXfPDK41btOTT6SY1TgTpzNfMR/G72ZE1rZr8P4zZgTdHAAqHAAAAAElFTkSuQmCC" />
+                     </svg>
+                  </div>
+                  <div class="h1">Планирование</div>
+                  <div class="row">
+                    <ul>
+                      <li>планирование и учет выполнения работ и оказания услуг</li>
+                      <li>планирование и учет производственных операций</li>
+                      <li>планирование загрузки ресурсов предприятия</li>
+                    </ul>
+                  </div>
+                </div>
+              <!--Element-->
+              <div class="col l6 s12 ele">
+                  <a href="" class="link_click modal-trigger"><span>  подробнее</span></a>
+                  <div class="ico">
+                      <svg 
+ xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ width="57px" height="49px">
+<image  x="0px" y="0px" width="57px" height="49px"  xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAAxCAMAAABXlfHaAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAQlBMVEX///8fTcEfTcEfTcEfTcEfTcEfTcEfTcEfTcEfTcEfTcEfTcGTkoOTkoOTkoOTkoOTkoOTkoOTkoMfTcGTkoP///9U6G0LAAAAE3RSTlMAEEAg0PAwwLCAkGAQ0PAwgHCgiCfyiQAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMSHRDKtGixAAAAX0lEQVRIx+3Suw6AIAyF4YIXvICg9P2f1ZGasLSLxpx/O0m/rUTdnG8NpGmsrUlFq8xDQn5TzqG1OI0M8nKF/LvcxKfsGukfGxISErIjY2JLR6ZigszlFXmaJV0mmOINNVBxHJ1n8VIAAAAASUVORK5CYII=" />
+</svg>
+                  </div>
+                  <div class="h1">Денежные операции</div>
+                  <div class="row">
+                    <ul>
+                      <li>торговые операции, в том числе розничные продажи</li>
+                      <li>учет персонала, расчет управленческой заработной платы</li>
+                      <li>учет затрат и расчет себестоимости</li>
+                      <li>доходы, расходы, прибыли и убытки</li>
+                      <li>имущество, капитал</li>
+                      <li>финансовое планирование (бюджетирование) и т. д</li>
+                    </ul>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="advanted padding_pluse z-depth-3">
+      <div class="container">
+        <div class="row">
+          <h3>Материалы</h3>
+        </div>
+        <div class="row">
+          <div class="col l6 s12">
+              <div class="h2">Документы:</div>
+              <ul class="collection col m8 s12">
+                  <li class="collection-item avatar">
+                      <a href="#!">
+                      <i class="material-icons circle">folder</i>
+                      <span class="title">Листовка</span>
+                      </a>
+                    </li>
+                  <li class="collection-item avatar">
+                      <a href="#!">
+                    <i class="material-icons circle">folder</i>
+                    <span class="title">Презентация</span>
+                    </a>
+                  </li>
+                </ul>
+                <div class="col s12">
+                    <iframe allowfullscreen="" frameborder="0" height="360" scrolling="no" src="https://www.youtube.com/embed/XMjxNwTv7d8" width="720"></iframe>
+                </div>
+          </div>
+            <div class="col l5 s12 right">
+                <div class="h1 white-text">Стоимость</div>
+                <h4 class="white-text">Варианты поставки:</h4>
+                <ul class="list">
+                  <li class="col s12"><div class="col m10 s12">1С:Управление ритуальными услугами -</div>  <div class="col m2 s12 btn red right"> 35 000*</div></li>
+                  <li class="col s12"><div class="col m10 s12">1С:Комплект на 5 рабочих мест - </div><div class="col m2 s12 btn red right">60 000*</div></li>
+                  <li class="col s12"><div class="col m10 s12">1 дополнительное рабочее место -</div> <div class="col m2 s12 btn red right">12 600**</div></li>
+                  <li class="col s12"><div class="col m10 s12">5 дополнительных рабочих мест -</div> <div class="col m2 s12 btn red right">43 200**</div></li>
+                  <li class="col s12"><div class="col m10 s12">10 дополнительных рабочих мест - </div><div class="col m2 s12 btn red right">82 800**</div></li>
+                </ul>
+                <blockquote class="white-text">
+                    <p>*  - при наличии лицензий 1С:Управление небольшой фирмой стоимость снижается на стоимость сдаваемых лицензий</p>
+                   <p> ** - при наличии лицензий платформы 1С:Предприятие 8 стоимость снижается на 50%</p>
+                </blockquote>
+                
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="call_back padding_pluse">
+      <div class="container">
+        <div class="row">
+          <h3>Рады ответить на ваши вопросы!</h3>
+          <form action="" class="col s12">
+            <div class="row no-row">
+                <div class="input-field col l3 m6 s12">
+                  <input id="icon_login" name="email" type="text" class="validate" placeholder="Ваш EMAIL">
+                  <span class="error_email" style="font-size: 0.8rem;"></span>
+                </div>
+                <div class="input-field col l3 m6 s12">
+                  <input id="icon_prefix" name="name" type="text" class="validate" placeholder="Ваше Имя">
+                  <span class="error_name" style="font-size: 0.8rem;"></span>
+                </div>
+                <div class="input-field col l3 m6 s12">
+                  <input id="icon_telephone" name="phone" type="tel" class="validate" placeholder="Ваш телефон">
+                  <span class="error_phone" style="font-size: 0.8rem;"></span>
+                </div>
+                <div class="input-field col l3 m6 s12">
+                  <button type="submit" class="btn red col s12">Заказать</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col l3 m6 s12 right">
+                  <label >
+                    <input type="checkbox" class="filled-in red-text" checked="checked" required="">
+                    <span style="font-size: 1rem;">Я согласен(a) на обработку моих персональных данных</span>
+                  </label>
+                  <br>
+                </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="mobi_app padding_pluse z-depth-5">
+      <div class="container">
+        <h3>Мобильное приложение</h3>
+        <div class="row">
+          <div class="col l6 s12 text-block">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quam illum cupiditate vel eos. Reprehenderit repellat quaerat commodi rem magni tempore aperiam exercitationem, a aliquam beatae facilis architecto sequi sint porro vero laudantium inventore sed! Maiores vel est facere corrupti enim laudantium molestiae nemo dolores quo, ea error sequi eum!
+          </div>
+          <div class="col l6 s12">
+              <div class="owl-carousel owl-theme mobi">
+                  <div class="item"><img src="img/Screen.png" alt=""></div>
+                  <div class="item"><img src="img/Screen.png" alt=""></div>
+                  <div class="item"><img src="img/Screen.png" alt=""></div>
+                  <div class="item"><img src="img/Screen.png" alt=""></div>
+                  <div class="item"><img src="img/Screen.png" alt=""></div>
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="comments padding_pluse">
+      <div class="container">
+        <div class="row">
+          <h2 class="">Отзывы</h2>
+          <div class="owl-carousel owl-theme comments_car">
+              <div class="item">
+                <div class="row">
+                  <div class="comments_avatar col l3 s12 z-depth-1 margin-min">
+                    <div class="item__avatar">
+                      <img src="img/avatar.jpg" class="" alt="">
+                      
+                    </div>
+                    <div class="item_avtor">
+                        ИП Свистунова Наталья Викторовна
+                    </div>
+                  </div>
+                  <div class="comments_avatar col l8 s12 z-depth-1 margin-min">
+                    <p>
+                        Все обращения оперативно рассматривались, быстро вносились корректировки. Ежедневная работа автоматизирована. С вами очень приятно работать, все профессионально!
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                  <div class="row">
+                    <div class="comments_avatar col l3 s12 margin-min">
+                      <div class="item__avatar">
+                        <img src="img/avatar.jpg" class="" alt="">
+                        
+                      </div>
+                      <div class="item_avtor ">
+                          ИП Свистунова Наталья Викторовна
+                      </div>
+                    </div>
+                    <div class="comments_avatar col l8 s12 margin-min">
+                      <p>
+                          Все обращения оперативно рассматривались, быстро вносились корректировки. Ежедневная работа автоматизирована. С вами очень приятно работать, все профессионально!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact padding_pluse">
+      <div class="container">
+        <h3>Контакты</h3>
+        <div class="row">
+          <div class="col l5 m12 s12">
+            <div class="link-text">
+              <p><span class="btn">Место нахождение:</span> 117342, г.Москва, ул. Бутлерова д.17</p>
+              <p><span class="btn">Телефон для связи:</span> <a href="#!">+7 (495) 514-19-90</a></p> 
+              <p class="fix-link">
+                <span class="btn">Мы в соц. сетях</span>
+                <a href="#!" ><img class="img-classic" src="img/if_ok_313120.svg" alt=""></a>
+                <a href="#!"><img class="img-classic" src="img/if_vkontakte_313078.svg" alt=""></a>
+              </p>
+            </div>
+          </div>
+          <div class="col l7 m12 s12">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2251.2431930031785!2d37.53744575168514!3d55.649978980430376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54d3078fe95c1%3A0x62c1bd2a3388b7a6!2z0YPQuy4g0JHRg9GC0LvQtdGA0L7QstCwLCAxNywg0JzQvtGB0LrQstCwLCAxMTczNDI!5e0!3m2!1sru!2sru!4v1530767330522" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+<footer>
+  <div class="container">
+    <div class="row">
+      
+    </div>
+  </div>
+</footer>
+<!-- Modal Structure -->
+<div id="modal01" class="modal">
+    <div class="modal-content">
+      <h4>Учет заказов</h4>
+      <div class="h2">Скриншот программного интерфейса</div>
+      <div class="row">
+        
+          <div class="owl-carousel owl-theme modal00">
+              <div class="item"><img src="img/m33-sl1.jpg" alt=""></div>
+              <div class="item"><img src="img/m33-sl2.jpg" alt=""></div>
+              <div class="item"><img src="img/m33-sl3.jpg" alt=""></div>
+          </div>
+      </div>
+      <div class="modal__text">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias commodi facilis quae sit earum laudantium perspiciatis, nihil eveniet at a quibusdam voluptate, quo quas, laboriosam autem? Tempora quis expedita veritatis?</p>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button href="#!" class="modal-close waves-effect waves-green btn-flat"><i class="material-icons large red-text">close</i></button>
+    </div>
+  </div>
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4>Modal Header</h4>
+        <p>A bunch of text</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+      </div>
+    </div>
+  <script src="vendor/libs.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+ 
+  <script src="vendor/owl.carousel.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

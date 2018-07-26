@@ -1,0 +1,50 @@
+.function
+  .ele
+    position: relative
+    .link_click
+      opacity: 0
+      @include anim_opacity
+      right: 0
+      width: 150px
+      height: 150px
+      position: absolute
+      border: 10px solid transparent
+      border-top: 10px solid $color_1
+      border-right: 10px solid $color_1
+      &:hover
+        border-top: 10px solid $color_2
+        border-right: 10px solid $color_2
+        @include anim_border
+      span
+        display: block
+        transform: rotate(45deg)
+        position: absolute
+        top: 40px
+        left: 36px
+        color: $color_1
+        font:
+          size: 18px
+    .ico
+      min-height: 55px
+    ul
+      li
+        color: $color_1
+        padding-left: 5px
+        font-size: 1.3em
+        &::before
+          content: ''
+          background: $color_1
+          width: 15px
+          height: 3px
+          display: block
+          float: left
+          position: relative
+          top: 15px
+          margin-right: 10px
+    &:hover
+      .link_click
+        opacity: 1
+        @include anim_opacity
+        
+      
+          

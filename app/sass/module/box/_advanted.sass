@@ -1,0 +1,40 @@
+.advanted
+  +bga(bg_advan, jpg)
+  background-position: right 0
+  @media(max-width: 1200px)
+    background-position: center 0
+    background-size: cover
+  .list
+    li
+      background: $color_1
+      border-radius: 8px
+      margin-bottom: .3em
+      color: $white
+      padding: .74rem .74rem 1em
+      font:
+        size: 1.3em
+      line-height: 1.8
+    &:after
+      content: ''
+      clear: both
+      display: block
+  .collection
+    padding: 0
+    li
+      //min-height: 4rem !important
+      background: rgba(255, 255, 255, 0.3803921568627451) !important
+      @media(max-width:1024px)
+        background: $white !important
+    a
+      display: block
+      padding: .2rem
+      color: $color_1
+      line-height: normal
+      font:
+        size: 1.3em
+        weight: bold
+      @media(max-width:1024px)
+        span
+          font:
+            size: 1.6em !important
+        

@@ -1,0 +1,28 @@
+.contact
+  +bga(bg_coment,jpg)
+  h3
+    color: $white
+  .link-text
+    span
+      @media(max-width: 760px)
+        width: 100%
+        
+    p
+      font:
+        size: 1em
+      color: $white
+      border: 2px solid $color_1
+      border-radius: 8px
+      padding: .7rem
+      @media(max-width: 760px)
+        font:
+          size: 1.5em
+      &.fix-link
+        display: flex
+        align-items: center
+      a
+        font:
+          size: 1.2em
+        img
+          margin: 0
+        
